@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  border: 1px solid red;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    min-width: 650px;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 144, 144);
+}
+.result {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.result > img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
