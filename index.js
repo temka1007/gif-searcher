@@ -6,6 +6,9 @@ const bringGif = () => {
   while (imgContainer.firstChild) {
     imgContainer.removeChild(imgContainer.firstChild);
   }
+
+  imgContainer.setAttribute("id", "loader")
+
   fetch(
     `https://api.giphy.com/v1/gifs/translate?api_key=U1W79RO2zIjzXZFlpofggO2sH7V5Lniv&s=${searchInput.value}`,
     {
@@ -25,6 +28,8 @@ const bringGif = () => {
       error.textContent = "no result";
       newImg.src = "./images/rick-roll.gif";
       imgContainer.append(error, newImg);
+    }).finally(() => {
+      imgContainer.removeAttribute("id", "loader")
     });
 };
 
@@ -32,13 +37,6 @@ searchBtn.addEventListener("click", () => {
   bringGif();
   searchInput.value = "";
 });
-
-    // searchInput.addEventListener("keypress", (e) => {
-    //   if (e.key === "Enter") {
-    //     bringGif();
-    //     searchInput.value = "";
-    //   }
-    // });
 
 window.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
